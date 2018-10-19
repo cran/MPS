@@ -1,6 +1,6 @@
 \name{gmbetaexpg}
 \alias{dgmbetaexpg} \alias{pgmbetaexpg} \alias{qgmbetaexpg} \alias{rgmbetaexpg} \alias{mpsgmbetaexpg}
-\title{exponentiated exponential Poisson G distribution}
+\title{gamma-X family of modified beta exponential G distribution}
 \description{Computes the pdf, cdf, quantile, and random numbers of the gamma-X family of modified beta exponential \code{G} distribution. The General form for the probability density function (pdf) of the gamma-X family of the modified beta exponential \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = abg(x-\mu,\theta ){\left( {1 - G(x-\mu,\theta )} \right)^{ - 2}}{e^{ - b\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}}{\left[ {1 - {e^{ - b\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}}} \right]^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma-X family of modified beta exponential \code{G} distribution is given by

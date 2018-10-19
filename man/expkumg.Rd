@@ -40,7 +40,7 @@ It can be shown that the Moran's statistic follows a normal distribution. Also, 
 \references{
 Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's statistic with estimated parameters, \emph{Biometrika}, 76 (2), 385-392.
 
-Lemonte, A. J.,  Barreto-Souza, W., and  Cordeiro, G. M. (2013). The exponentiated Kumaraswamy distribution and its log-transform, \emph{Brazilian Journal of Probability and Statistics}, 27, 31-53.}
+Lemonte, A. J., Barreto-Souza, W., and  Cordeiro, G. M. (2013). The exponentiated Kumaraswamy distribution and its log-transform, \emph{Brazilian Journal of Probability and Statistics}, 27, 31-53.}
 \author{Mahdi Teimouri}
 \examples{
 x<-rweibull(100,shape=2,scale=2)+3

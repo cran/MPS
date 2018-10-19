@@ -240,7 +240,7 @@ mpsbetaexpg<-function(mydata, g, location=TRUE, method , sig.level){
     -sum(log(z))
   }
 
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   if (location==TRUE){
     out$par[1:(n.p-1)]<-abs(out$par[1:(n.p-1)])}
@@ -529,7 +529,7 @@ mpsbetag<-function(mydata, g, location=TRUE, method, sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -809,7 +809,7 @@ mpsexpexppg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -1092,7 +1092,7 @@ mpsexpgg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -1373,7 +1373,7 @@ mpsexpg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -1659,7 +1659,7 @@ mpsexpkumg<-function(mydata, g, location=TRUE, method , sig.level){
     -sum(log(z))
   }
 
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   if (location==TRUE){
     out$par[1:(n.p-1)]<-abs(out$par[1:(n.p-1)])}
@@ -1947,7 +1947,7 @@ mpsgammag<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -2228,7 +2228,7 @@ mpsgammag1<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -2509,7 +2509,7 @@ mpsgammag2<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -2795,7 +2795,7 @@ mpsgbetag<-function(mydata, g, location=TRUE, method , sig.level){
     -sum(log(z))
   }
 
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   if (location==TRUE){
     out$par[1:(n.p-1)]<-abs(out$par[1:(n.p-1)])}
@@ -3086,7 +3086,7 @@ mpsgtransg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -3369,7 +3369,7 @@ mpskumg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -3655,7 +3655,7 @@ mpsologlogg<-function(mydata, g, location=TRUE, method, sig.level){
     -sum(log(z))
   }
 
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
 
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
@@ -3940,7 +3940,7 @@ mpsloggammag1<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -4223,7 +4223,7 @@ mpsloggammag2<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -4504,7 +4504,7 @@ mpsgxlogisticg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -4787,7 +4787,7 @@ mpsgmbetaexpg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -5068,7 +5068,7 @@ mpstexpsg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -5351,7 +5351,7 @@ mpsweibullg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -5638,7 +5638,7 @@ mpsmbetag<-function(mydata, g, location=TRUE, method, sig.level){
     -sum(log(z))
   }
 
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   if (location==TRUE){
     out$par[1:(n.p-1)]<-abs(out$par[1:(n.p-1)])}
@@ -5927,7 +5927,7 @@ mpsmog<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -6210,7 +6210,7 @@ mpsmokumg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -6495,7 +6495,7 @@ mpsgexppg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))
@@ -12389,7 +12389,7 @@ mpsweibullextg<-function(mydata, g, location=TRUE, method , sig.level){
     z[z<1e-16]=1e-16
     -sum(log(z))
   }
-  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method))
+  out<-suppressWarnings(optim(starts,fn=mpsw,x=sort.mydata,method=method))
   n.p<-length(out$par)
   gammam<-(n+1)*(log(n+1)-digamma(1))-1/2-1/(12*(n+1))
   sigma2m<-(n+1)*(pi^2/6-1)-1/2-1/(6*(n+1))

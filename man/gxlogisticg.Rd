@@ -1,10 +1,10 @@
 \name{gxlogisticg}
 \alias{dgxlogisticg} \alias{pgxlogisticg} \alias{qgxlogisticg} \alias{rgxlogisticg} \alias{mpsgxlogisticg}
-\title{gamma-X generated of log-logistic familiy of G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the gamma-X generated of log-logistic familiy of \code{G} distribution. General form for the probability density function (pdf) of gamma-X generated of the log-logistic familiy of \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\title{gamma-X generated of log-logistic-X familiy of G distribution}
+\description{Computes the pdf, cdf, quantile, and random numbers of the log-logistic-X familiy of \code{G} distribution. General form for the probability density function (pdf) of gamma-X generated of the log-logistic-X familiy of \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{ag(x-\mu,\theta ){{\left[ { - \log \left( {1 - G(x-\mu,\theta )} \right)} \right]}^{ - a - 1}}}}{{\left( {1 - G(x,\theta )} \right){{\left\{ {1 + {{\left[ { - \log \left( {1 - G(x,\theta )} \right)} \right]}^a}} \right\}}^2}}},}
-where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma-X generated of log-logistic familiy of \code{G} distribution is given by
-\deqn{F(x,{\Theta}) = \frac{1}{{1 + {{\left[ { - \log \left( {1 - G(x,\theta )} \right)} \right]}^a}}}.}
+where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. It should be noted that here we set \eqn{W(G(x,\theta))=-log(1-G(x,\theta ))}. The general form for the cumulative distribution function (cdf) of the gamma-X generated of log-logistic familiy of \code{G} distribution is given by
+\deqn{F(x,{\Theta}) = \frac{1}{{1 + {{\left[ { - \log \left( {1 - G(x,\theta )} \right)} \right]}^{-a}}}}.}
 Here, the baseline \code{G} refers to the cdf of famous families such as: Birnbaum-Saunders, Burr type XII, Exponential, Chen, Chisquare, F, Frechet, Gamma, Gompertz, Linear failure rate (lfr), Log-normal, Log-logistic, Lomax, Rayleigh, and Weibull. The parameter vector is \eqn{\Theta=(a,\theta,\mu)} where \eqn{\theta} is the baseline \code{G} family's parameter space. If \eqn{\theta} consists of the shape and scale parameters, the last component of \eqn{\theta} is the scale parameter (here, a is the shape parameter). Always, the location parameter \eqn{\mu} is placed in the last component of \eqn{\Theta}.}
 \usage{
 dgxlogisticg(mydata, g, param, location = TRUE, log=FALSE)
