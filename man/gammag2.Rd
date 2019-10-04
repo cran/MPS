@@ -1,7 +1,7 @@
 \name{gammag2}
-\alias{dgammag2} \alias{pgammag2} \alias{qgammag2} \alias{rgammag2} \alias{mpsgammag2}
+\alias{dgammag2} \alias{pgammag2} \alias{qgammag2} \alias{rgammag2} \alias{mpsgammag2} \alias{qqgammag2}
 \title{gamma uniform type II G distribution }
-\description{Computes the pdf, cdf, quantile, and random numbers of the gamma uniform type II \code{G} distribution . General form for the probability density function (pdf) of the gamma uniform type II \code{G} distribution due to Ristic and Balakrishnan (2012) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the gamma uniform type II \code{G} distribution . General form for the probability density function (pdf) of the gamma uniform type II \code{G} distribution due to Ristic and Balakrishnan (2012) is given by
 \deqn{f(x,{\Theta}) = \frac{{g(x-\mu,\theta )}}{{\Gamma \left( a \right)}}{\left[ { - \log \left( {G(x-\mu,\theta )} \right)} \right]^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma uniform type II \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \int_0^{ - \log \left( {G(x-\mu,\theta )} \right)} {\frac{{{y^{a - 1}}{e^{ - y}}}}{{\Gamma (a)}}dy}.}
@@ -11,6 +11,7 @@ dgammag2(mydata, g, param, location = TRUE, log=FALSE)
 pgammag2(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgammag2(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgammag2(n, g, param, location = TRUE)
+qqgammag2(mydata, g, location = TRUE, method)
 mpsgammag2(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Ristic, M. M. and Balakrishnan, N. (2012). The gamma exponentiated exponential distribution, \emph{Journal of Statistical Computation and Simulation}, 82, 1191-1206.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgammag2(x, "weibull", c(1,2,2,3))
-pgammag2(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgammag2(mydata, "weibull", c(1,2,2,3))
+pgammag2(mydata, "weibull", c(1,2,2,3))
 qgammag2(runif(100), "weibull", c(1,2,2,3))
 rgammag2(100, "weibull", c(1,2,2,3))
-mpsgammag2(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgammag2(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgammag2(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

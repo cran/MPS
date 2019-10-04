@@ -1,7 +1,7 @@
 \name{gammag}
-\alias{dgammag} \alias{pgammag} \alias{qgammag} \alias{rgammag} \alias{mpsgammag}
+\alias{dgammag} \alias{pgammag} \alias{qgammag} \alias{rgammag} \alias{mpsgammag} \alias{qqgammag}
 \title{gamma uniform G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the gamma uniform \code{G} distribution. General form for the probability density function (pdf) of the gamma uniform \code{G} distribution due to Torabi and Montazeri (2012) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the gamma uniform \code{G} distribution. General form for the probability density function (pdf) of the gamma uniform \code{G} distribution due to Torabi and Montazeri (2012) is given by
 \deqn{f(x,{\Theta}) = \frac{{g(x-\mu,\theta )}}{{\Gamma (a){{\left( {1 - G(x-\mu,\theta )} \right)}^2}}}{\left( {\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}} \right)^{a - 1}}{e^{ - \,\,\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma uniform \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \int_0^{\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}} {\frac{{{y^{a - 1}}{e^{ - y}}}}{{\Gamma (a)}}dy}.}
@@ -11,6 +11,7 @@ dgammag(mydata, g, param, location = TRUE, log=FALSE)
 pgammag(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgammag(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgammag(n, g, param, location = TRUE)
+qqgammag(mydata, g, location = TRUE, method)
 mpsgammag(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Torabi, H. and Montazeri, N. H. (2012).  The gamma uniform distribution and its applications, \emph{Kybernetika}, 48, 16-30.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgammag(x, "weibull", c(1,2,2,3))
-pgammag(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgammag(mydata, "weibull", c(1,2,2,3))
+pgammag(mydata, "weibull", c(1,2,2,3))
 qgammag(runif(100), "weibull", c(1,2,2,3))
 rgammag(100, "weibull", c(1,2,2,3))
-mpsgammag(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgammag(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgammag(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

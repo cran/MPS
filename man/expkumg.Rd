@@ -1,7 +1,7 @@
 \name{expkumg}
-\alias{dexpkumg} \alias{pexpkumg} \alias{qexpkumg} \alias{rexpkumg} \alias{mpsexpkumg}
+\alias{dexpkumg} \alias{pexpkumg} \alias{qexpkumg} \alias{rexpkumg} \alias{mpsexpkumg} \alias{qqexpkumg}
 \title{exponentiated Kumaraswamy G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the exponentiated Kumaraswamy \code{G} distribution. The General form for the probability density function (pdf) of exponentiated Kumaraswamy \code{G} distribution due to Lemonte et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the exponentiated Kumaraswamy \code{G} distribution. The General form for the probability density function (pdf) of exponentiated Kumaraswamy \code{G} distribution due to Lemonte et al. (2013) is given by
 \deqn{f(x,{\Theta}) = a\,b\,d\,g(x-\mu,\theta ){\left( {G(x-\mu,\theta )} \right)^{a - 1}}{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]^{b - 1}}{\left\{ {1 - {{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^b}} \right\}^{d - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the exponentiated Kumaraswamy \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = {\left\{ {1 - {{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^b}} \right\}^d}.}
@@ -11,6 +11,7 @@ dexpkumg(mydata, g, param, location = TRUE, log=FALSE)
 pexpkumg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qexpkumg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rexpkumg(n, g, param, location = TRUE)
+qqexpkumg(mydata, g, location = TRUE, method)
 mpsexpkumg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Lemonte, A. J., Barreto-Souza, W., and  Cordeiro, G. M. (2013). The exponentiated Kumaraswamy distribution and its log-transform, \emph{Brazilian Journal of Probability and Statistics}, 27, 31-53.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dexpkumg(x, "weibull", c(1,1,1,2,2,3))
-pexpkumg(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dexpkumg(mydata, "weibull", c(1,1,1,2,2,3))
+pexpkumg(mydata, "weibull", c(1,1,1,2,2,3))
 qexpkumg(runif(100), "weibull", c(1,1,1,2,2,3))
 rexpkumg(100, "weibull", c(1,1,1,2,2,3))
-mpsexpkumg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqexpkumg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsexpkumg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

@@ -1,7 +1,7 @@
 \name{expexppg}
-\alias{dexpexppg} \alias{pexpexppg} \alias{qexpexppg} \alias{rexpexppg} \alias{mpsexpexppg}
+\alias{dexpexppg} \alias{pexpexppg} \alias{qexpexppg} \alias{rexpexppg} \alias{mpsexpexppg} \alias{qqexpexppg}
 \title{exponentiated exponential Poisson G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the exponentiated exponential Poisson \code{G} distribution. The general form for the probability density function (pdf) of the the exponentiated exponential Poisson \code{G} distribution due to Ristic and Nadarajah (2014) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the exponentiated exponential Poisson \code{G} distribution. The general form for the probability density function (pdf) of the the exponentiated exponential Poisson \code{G} distribution due to Ristic and Nadarajah (2014) is given by
 \deqn{f(x,{\Theta}) = \frac{{a\,b\,g(x-\mu,\theta ){{\left( {G(x-\mu,\theta )} \right)}^{a - 1}}{e^{ - b{{\left( {G(x-\mu,\theta )} \right)}^a}}}}}{{1 - {e^{ - b}}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the exponentiated exponential Poisson \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{{1 - {e^{ - b{{\left( {G(x-\mu,\theta )} \right)}^a}}}}}{{1 - {e^{ - b}}}}.}
@@ -11,6 +11,7 @@ dexpexppg(mydata, g, param, location = TRUE, log=FALSE)
 pexpexppg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qexpexppg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rexpexppg(n, g, param, location = TRUE)
+qqexpexppg(mydata, g, location = TRUE, method)
 mpsexpexppg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Ristic, M. M. and Nadarajah, S. (2014). A new lifetime distribution, \emph{Journal of Statistical Computation and Simulation}, 84 (1), 135-150.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dexpexppg(x, "weibull", c(1,1,2,2,3))
-pexpexppg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dexpexppg(mydata, "weibull", c(1,1,2,2,3))
+pexpexppg(mydata, "weibull", c(1,1,2,2,3))
 qexpexppg(runif(100), "weibull", c(1,1,2,2,3))
 rexpexppg(100, "weibull", c(1,1,2,2,3))
-mpsexpexppg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqexpexppg(mydata, "weibull", location = TRUE, "Nelder-Mead")
+mpsexpexppg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

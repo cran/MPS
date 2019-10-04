@@ -1,7 +1,7 @@
 \name{gtransg}
-\alias{dgtransg} \alias{pgtransg} \alias{qgtransg} \alias{rgtransg} \alias{mpsgtransg}
+\alias{dgtransg} \alias{pgtransg} \alias{qgtransg} \alias{rgtransg} \alias{mpsgtransg} \alias{qqgtransg}
 \title{exponentiated exponential Poisson G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the generalized transmuted \code{G} distribution. The general form for the probability density function (pdf) of the generalized transmuted \code{G} distribution due to Merovci et al. (2017) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the generalized transmuted \code{G} distribution. The general form for the probability density function (pdf) of the generalized transmuted \code{G} distribution due to Merovci et al. (2017) is given by
 \deqn{f(x,{\Theta}) = a\,g(x-\mu,\theta ){\left( {G(x-\mu,\theta )} \right)^{a - 1}}\left[ {1 + b - 2bG(x-\mu,\theta )} \right]{\left[ {1 + b\left( {1 - G(x-\mu,\theta )} \right)} \right]^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b<1, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the generalized transmuted \code{G} distribution distribution is given by
 \deqn{F(x,{\Theta}) = {\left( {G(x-\mu,\theta )} \right)^a}{\left[ {1 + b\left( {1 - G(x-\mu,\theta )} \right)} \right]^a}.}
@@ -11,6 +11,7 @@ dgtransg(mydata, g, param, location = TRUE, log=FALSE)
 pgtransg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgtransg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgtransg(n, g, param, location = TRUE)
+qqgtransg(mydata, g, location = TRUE, method)
 mpsgtransg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Merovcia, F., Alizadeh, M., Yousof, H. M., and Hamedani, G. G. (2017). The exponentiated transmuted-G family of distributions: Theory and applications, \emph{Communications in Statistics-Theory and Methods}, 46(21), 10800-10822.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgtransg(x, "weibull", c(1,0.5,2,2,3))
-pgtransg(x, "weibull", c(1,0.5,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgtransg(mydata, "weibull", c(1,0.5,2,2,3))
+pgtransg(mydata, "weibull", c(1,0.5,2,2,3))
 qgtransg(runif(100), "weibull", c(1,0.5,2,2,3))
 rgtransg(100, "weibull", c(1,0.5,2,2,3))
-mpsgtransg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgtransg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgtransg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

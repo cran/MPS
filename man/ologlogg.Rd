@@ -1,7 +1,7 @@
 \name{ologlogg}
-\alias{dologlogg} \alias{pologlogg} \alias{qologlogg} \alias{rologlogg} \alias{mpsologlogg}
+\alias{dologlogg} \alias{pologlogg} \alias{qologlogg} \alias{rologlogg} \alias{mpsologlogg} \alias{qqologlogg}
 \title{odd log-logistic G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the odd log-logistic \code{G} distribution. General form for the probability density function (pdf) of the odd log-logistic \code{G} distribution due to Gauss et al. (2017) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the odd log-logistic \code{G} distribution. General form for the probability density function (pdf) of the odd log-logistic \code{G} distribution due to Gauss et al. (2017) is given by
 \deqn{f(x,{\Theta}) = \frac{{a\,b\,d\,g(x-\mu,\theta ){{\left( {G(x-\mu,\theta )} \right)}^{a\,d - 1}}{{\left[ {\bar G(x-\mu,\theta )} \right]}^{d - 1}}}}{{{{\left[ {{{\left( {G(x-\mu,\theta )} \right)}^d} - {{\left( {\bar G(x-\mu,\theta )} \right)}^d}} \right]}^{a + 1}}}}{\left\{ {1 - {{\left[ {\frac{{{{\left( {G(x-\mu,\theta )} \right)}^d}}}{{{{\left( {G(x-\mu,\theta )} \right)}^d} - {{\left( {\bar G(x-\mu,\theta )} \right)}^d}}}} \right]}^a}} \right\}^{b - 1}},}
 with \eqn{\bar G(x-\mu,\theta ) = 1 - G(x-\mu,\theta )} where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the odd log-logistic \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - {\left\{ {1 - {{\left[ {\frac{{{{\left( {G(x-\mu,\theta )} \right)}^d}}}{{{{\left( {G(x-\mu,\theta )} \right)}^d} - {{\left( {\bar G(x-\mu,\theta )} \right)}^d}}}} \right]}^a}} \right\}^b}.}
@@ -11,6 +11,7 @@ dologlogg(mydata, g, param, location = TRUE, log=FALSE)
 pologlogg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qologlogg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rologlogg(n, g, param, location = TRUE)
+qqologlogg(mydata, g, location = TRUE, method)
 mpsologlogg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Gauss, M. C., Alizadeh, M., Ozel, G., Hosseini, B. Ortega, E. M. M., and Altunc, E. (2017). The generalized odd log-logistic family of distributions: properties, regression models and applications, \emph{Journal of Statistical Computation and Simulation}, 87(5), 908-932.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dologlogg(x, "weibull", c(1,1,1,2,2,3))
-pologlogg(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dologlogg(mydata, "weibull", c(1,1,1,2,2,3))
+pologlogg(mydata, "weibull", c(1,1,1,2,2,3))
 qologlogg(runif(100), "weibull", c(1,1,1,2,2,3))
 rologlogg(100, "weibull", c(1,1,1,2,2,3))
-mpsologlogg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqologlogg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsologlogg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

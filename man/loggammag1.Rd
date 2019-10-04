@@ -1,7 +1,7 @@
 \name{loggammag1}
-\alias{dloggammag1} \alias{ploggammag1} \alias{qloggammag1} \alias{rloggammag1} \alias{mpsloggammag1}
+\alias{dloggammag1} \alias{ploggammag1} \alias{qloggammag1} \alias{rloggammag1} \alias{mpsloggammag1} \alias{qqloggammag1}
 \title{log gamma G type I distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the log gamma type I \code{G} distribution. General form for the probability density function (pdf) of the log gamma type I \code{G} distribution due to Amini et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the log gamma type I \code{G} distribution. General form for the probability density function (pdf) of the log gamma type I \code{G} distribution due to Amini et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{{b^a}}}{{\Gamma (a)}}g(x-\mu,\theta ){\left[ { - \log (1 - G(x-\mu,\theta ))} \right]^{a - 1}}{\left( {1 - G(x-\mu,\theta )} \right)^{b - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the log gamma type I \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \int_0^{ - b\log \left( {1 - G(x-\mu,\theta )} \right)} {\frac{{{y^{a - 1}}{e^{ - y}}}}{{\Gamma (a)}}dy}.}
@@ -11,6 +11,7 @@ dloggammag1(mydata, g, param, location = TRUE, log=FALSE)
 ploggammag1(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qloggammag1(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rloggammag1(n, g, param, location = TRUE)
+qqloggammag1(mydata, g, location = TRUE, method)
 mpsloggammag1(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Amini, M., MirMostafaee, S. M. T. K., and Ahmadi, J. (2013). Log-gamma-generated families of distributions, \emph{Statistics}, 48 (4), 913-932.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dloggammag1(x, "weibull", c(1,1,2,2,3))
-ploggammag1(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dloggammag1(mydata, "weibull", c(1,1,2,2,3))
+ploggammag1(mydata, "weibull", c(1,1,2,2,3))
 qloggammag1(runif(100), "weibull", c(1,1,2,2,3))
 rloggammag1(100, "weibull", c(1,1,2,2,3))
-mpsloggammag1(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqloggammag1(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsloggammag1(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

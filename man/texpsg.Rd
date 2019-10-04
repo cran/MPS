@@ -1,7 +1,7 @@
 \name{texpsg}
-\alias{dtexpsg} \alias{ptexpsg} \alias{qtexpsg} \alias{rtexpsg} \alias{mpstexpsg}
+\alias{dtexpsg} \alias{ptexpsg} \alias{qtexpsg} \alias{rtexpsg} \alias{mpstexpsg} \alias{qqtexpsg}
 \title{truncated-exponential skew-symmetric G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the truncated-exponential skew-symmetric \code{G} distribution. General form for the probability density function (pdf) of the truncated-exponential skew-symmetric \code{G} distribution due to Nadarajah et al. (2014) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the truncated-exponential skew-symmetric \code{G} distribution. General form for the probability density function (pdf) of the truncated-exponential skew-symmetric \code{G} distribution due to Nadarajah et al. (2014) is given by
 \deqn{f(x,{\Theta}) = \frac{a}{{1 - {e^{ - a}}}}g(x-\mu,\theta ){e^{ - aG(x-\mu,\theta )}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the truncated-exponential skew-symmetric \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{{1 - {e^{ - aG(x-\mu,\theta )}}}}{{1 - {e^{ - a}}}}.}
@@ -11,6 +11,7 @@ dtexpsg(mydata, g, param, location = TRUE, log=FALSE)
 ptexpsg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qtexpsg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rtexpsg(n, g, param, location = TRUE)
+qqtexpsg(mydata, g, location = TRUE, method)
 mpstexpsg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Nadarajah, S., Nassiri, V., and Mohammadpour, A. (2014). Truncated-exponential skew-symmetric distributions, \emph{Statistics}, 48 (4), 872-895.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dtexpsg(x, "weibull", c(1,2,2,3))
-ptexpsg(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dtexpsg(mydata, "weibull", c(1,2,2,3))
+ptexpsg(mydata, "weibull", c(1,2,2,3))
 qtexpsg(runif(100), "weibull", c(1,2,2,3))
 rtexpsg(100, "weibull", c(1,2,2,3))
-mpstexpsg(x, "weibull", TRUE,"Nelder-Mead", 0.05)
+qqtexpsg(mydata, "weibull", TRUE,"Nelder-Mead")
+mpstexpsg(mydata, "weibull", TRUE,"Nelder-Mead", 0.05)
 }
 

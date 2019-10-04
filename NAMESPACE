@@ -1,3 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 importFrom("stats", "na.omit", "cor", "var", "median", "lm", "sd", "optim", "uniroot", "runif", "dlnorm", "plnorm", "qlnorm", "pbeta", "qbeta", "dweibull", "pweibull", "qweibull", "dnorm", "pnorm", "qnorm", "dgamma", "pgamma", "qgamma", "dchisq", "pchisq", "qchisq", "df", "pf", "qf", "ks.test", "dexp", "pexp", "qexp")
+importFrom("graphics", "lines", "plot")
 

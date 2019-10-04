@@ -1,7 +1,7 @@
 \name{gbetag}
-\alias{dgbetag} \alias{pgbetag} \alias{qgbetag} \alias{rgbetag} \alias{mpsgbetag}
+\alias{dgbetag} \alias{pgbetag} \alias{qgbetag} \alias{rgbetag} \alias{mpsgbetag} \alias{qqgbetag}
 \title{generalized beta G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the generalized beta \code{G} distribution. General form for the probability density function (pdf) of the generalized beta \code{G} distribution due to Alexander et al. (2012) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the generalized beta \code{G} distribution. General form for the probability density function (pdf) of the generalized beta \code{G} distribution due to Alexander et al. (2012) is given by
 \deqn{f(x,{\Theta}) = \frac{{d\,g(x-\mu,\theta ){{\left( {G(x-\mu,\theta )} \right)}^{ad - 1}}{{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^d}} \right]}^{b - 1}}}}{{B\left( {a,b} \right)}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the generalized beta \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{{\int_0^{{{\left( {G(x-\mu,\theta )} \right)}^d}} {{y^{a - 1}}{{\left( {1 - y} \right)}^{b - 1}}} dy}}{{B(a,b)}}.}
@@ -11,6 +11,7 @@ dgbetag(mydata, g, param, location = TRUE, log=FALSE)
 pgbetag(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgbetag(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgbetag(n, g, param, location = TRUE)
+qqgbetag(mydata, g, location = TRUE, method)
 mpsgbetag(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alexander, C., Cordeiro, G. M., and Ortega, E. M. M. (2012). Generalized beta-generated distributions, \emph{Computational Statistics and Data Analysis}, 56, 1880-1897.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgbetag(x, "weibull", c(1,1,1,2,2,3))
-pgbetag(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgbetag(mydata, "weibull", c(1,1,1,2,2,3))
+pgbetag(mydata, "weibull", c(1,1,1,2,2,3))
 qgbetag(runif(100), "weibull", c(1,1,1,2,2,3))
 rgbetag(100, "weibull", c(1,1,1,2,2,3))
-mpsgbetag(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgbetag(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgbetag(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

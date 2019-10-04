@@ -1,7 +1,7 @@
 \name{betaexpg}
-\alias{dbetaexpg} \alias{pbetaexpg} \alias{qbetaexpg} \alias{rbetaexpg} \alias{mpsbetaexpg}
+\alias{dbetaexpg} \alias{pbetaexpg} \alias{qbetaexpg} \alias{rbetaexpg} \alias{mpsbetaexpg} \alias{qqbetaexpg}
 \title{beta exponential G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the beta exponential \code{G} distribution. The General form for the probability density function (pdf) of the beta exponential \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the beta exponential \code{G} distribution. The General form for the probability density function (pdf) of the beta exponential \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{d\,g(x-\mu,\theta ){{\left[ {1 - {{\left( {1 - G(x-\mu,\theta )} \right)}^d}} \right]}^{b - 1}}{{\left( {1 - G(x-\mu,\theta )} \right)}^{ad - 1}}}}{{B(a,b)}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the beta exponential \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - \frac{{\int_0^{{{\left( {1 - G(x-\mu,\theta )} \right)}^d}} {{y^{a - 1}}{{\left( {1 - y} \right)}^{b - 1}}} dy}}{{B(a,b)}}.}
@@ -11,6 +11,7 @@ dbetaexpg(mydata, g, param, location = TRUE, log=FALSE)
 pbetaexpg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qbetaexpg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rbetaexpg(n, g, param, location = TRUE)
+qqbetaexpg(mydata, g, location ="TRUE", method)
 mpsbetaexpg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alzaatreh, A., Lee, C., and Famoye, F. (2013). A new method for generating families of continuous distributions, \emph{Metron}, 71, 63-79.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dbetaexpg(x, "weibull", c(1,1,1,2,2,3))
-pbetaexpg(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dbetaexpg(mydata, "weibull", c(1,1,1,2,2,3))
+pbetaexpg(mydata, "weibull", c(1,1,1,2,2,3))
 qbetaexpg(runif(100), "weibull", c(1,1,1,2,2,3))
 rbetaexpg(100, "weibull", c(1,1,1,2,2,3))
-mpsbetaexpg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqbetaexpg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsbetaexpg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

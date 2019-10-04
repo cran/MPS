@@ -1,7 +1,7 @@
 \name{gammag1}
-\alias{dgammag1} \alias{pgammag1} \alias{qgammag1} \alias{rgammag1} \alias{mpsgammag1}
+\alias{dgammag1} \alias{pgammag1} \alias{qgammag1} \alias{rgammag1} \alias{mpsgammag1} \alias{qqgammag1}
 \title{gamma uniform type I G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the gamma uniform type I \code{G} distribution. General form for the probability density function (pdf) of the gamma uniform type I \code{G} distribution due to Zografos and Balakrishnan (2009) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the gamma uniform type I \code{G} distribution. General form for the probability density function (pdf) of the gamma uniform type I \code{G} distribution due to Zografos and Balakrishnan (2009) is given by
 \deqn{f(x,{\Theta}) = \frac{{g(x-\mu,\theta )}}{{\Gamma \left( a \right)}}{\left[ { - \log \left( {1 - G(x-\mu,\theta )} \right)} \right]^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma uniform type I \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \int_0^{ - \log \left( {1 - G(x-\mu,\theta )} \right)} {\frac{{{y^{a - 1}}{e^{ - y}}}}{{\Gamma (a)}}dy}.}
@@ -11,6 +11,7 @@ dgammag1(mydata, g, param, location = TRUE, log=FALSE)
 pgammag1(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgammag1(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgammag1(n, g, param, location = TRUE)
+qqgammag1(mydata, g, location = TRUE, method)
 mpsgammag1(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Zografos, K. and Balakrishnan, N. (2009). On families of beta- and generalized gamma-generated distributions and associated inference, \emph{Statistical Methodology}, 6, 344-362.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgammag1(x, "weibull", c(1,2,2,3))
-pgammag1(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgammag1(mydata, "weibull", c(1,2,2,3))
+pgammag1(mydata, "weibull", c(1,2,2,3))
 qgammag1(runif(100), "weibull", c(1,2,2,3))
 rgammag1(100, "weibull", c(1,2,2,3))
-mpsgammag1(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgammag1(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgammag1(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

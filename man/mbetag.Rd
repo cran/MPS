@@ -1,7 +1,7 @@
 \name{mbetag}
-\alias{dmbetag} \alias{pmbetag} \alias{qmbetag} \alias{rmbetag} \alias{mpsmbetag}
+\alias{dmbetag} \alias{pmbetag} \alias{qmbetag} \alias{rmbetag} \alias{mpsmbetag} \alias{qqmbetag}
 \title{modified beta G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the modified beta \code{G} distribution. General form for the probability density function (pdf) of the modified beta \code{G} distribution due to Nadarajah et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the modified beta \code{G} distribution. General form for the probability density function (pdf) of the modified beta \code{G} distribution due to Nadarajah et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{{d^a}g(x-\mu,\theta ){{\left( {G(x-\mu,\theta )} \right)}^{a - 1}}{{\left( {1 - G(x-\mu,\theta )} \right)}^{b - 1}}}}{{B(a,b){{\left[ {1 - \left( {1 - d} \right)G(x-\mu,\theta )} \right]}^{a + b}}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cdf of the modified beta \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{{\int_0^{\frac{{d\,G(x-\mu,\theta )}}{{1 - (1 - d)G(x-\mu,\theta )}}} {{y^{a - 1}}{{\left( {1 - y} \right)}^{b - 1}}} dy}}{{B(a,b)}}.}
@@ -11,6 +11,7 @@ dmbetag(mydata, g, param, location = TRUE, log=FALSE)
 pmbetag(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qmbetag(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rmbetag(n, g, param, location = TRUE)
+qqmbetag(mydata, g, location = TRUE, method)
 mpsmbetag(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Nadarajah, S., Teimouri, M., and Shih, S. H. (2014). Modified beta distributions, \emph{Sankhya}, 76 (1), 19-48.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dmbetag(x, "weibull", c(1,1,1,2,2,3))
-pmbetag(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dmbetag(mydata, "weibull", c(1,1,1,2,2,3))
+pmbetag(mydata, "weibull", c(1,1,1,2,2,3))
 qmbetag(runif(100), "weibull", c(1,1,1,2,2,3))
 rmbetag(100, "weibull", c(1,1,1,2,2,3))
-mpsmbetag(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqmbetag(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsmbetag(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

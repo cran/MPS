@@ -1,7 +1,7 @@
 \name{gxlogisticg}
-\alias{dgxlogisticg} \alias{pgxlogisticg} \alias{qgxlogisticg} \alias{rgxlogisticg} \alias{mpsgxlogisticg}
+\alias{dgxlogisticg} \alias{pgxlogisticg} \alias{qgxlogisticg} \alias{rgxlogisticg} \alias{mpsgxlogisticg} \alias{qqgxlogisticg}
 \title{gamma-X generated of log-logistic-X familiy of G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the log-logistic-X familiy of \code{G} distribution. General form for the probability density function (pdf) of gamma-X generated of the log-logistic-X familiy of \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the log-logistic-X familiy of \code{G} distribution. General form for the probability density function (pdf) of gamma-X generated of the log-logistic-X familiy of \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{ag(x-\mu,\theta ){{\left[ { - \log \left( {1 - G(x-\mu,\theta )} \right)} \right]}^{ - a - 1}}}}{{\left( {1 - G(x,\theta )} \right){{\left\{ {1 + {{\left[ { - \log \left( {1 - G(x,\theta )} \right)} \right]}^a}} \right\}}^2}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. It should be noted that here we set \eqn{W(G(x,\theta))=-log(1-G(x,\theta ))}. The general form for the cumulative distribution function (cdf) of the gamma-X generated of log-logistic familiy of \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{1}{{1 + {{\left[ { - \log \left( {1 - G(x,\theta )} \right)} \right]}^{-a}}}}.}
@@ -11,6 +11,7 @@ dgxlogisticg(mydata, g, param, location = TRUE, log=FALSE)
 pgxlogisticg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgxlogisticg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgxlogisticg(n, g, param, location = TRUE)
+qqgxlogisticg(mydata, g, location = TRUE, method)
 mpsgxlogisticg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alzaatreh, A., Lee, C., and Famoye, F. (2013). A new method for generating families of continuous distributions, \emph{Metron}, 71, 63-79.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgxlogisticg(x, "weibull", c(1,2,2,3))
-pgxlogisticg(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgxlogisticg(mydata, "weibull", c(1,2,2,3))
+pgxlogisticg(mydata, "weibull", c(1,2,2,3))
 qgxlogisticg(runif(100), "weibull", c(1,2,2,3))
 rgxlogisticg(100, "weibull", c(1,2,2,3))
-mpsgxlogisticg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgxlogisticg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgxlogisticg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

@@ -1,7 +1,7 @@
 \name{gmbetaexpg}
-\alias{dgmbetaexpg} \alias{pgmbetaexpg} \alias{qgmbetaexpg} \alias{rgmbetaexpg} \alias{mpsgmbetaexpg}
+\alias{dgmbetaexpg} \alias{pgmbetaexpg} \alias{qgmbetaexpg} \alias{rgmbetaexpg} \alias{mpsgmbetaexpg} \alias{qqgmbetaexpg}
 \title{gamma-X family of modified beta exponential G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the gamma-X family of modified beta exponential \code{G} distribution. The General form for the probability density function (pdf) of the gamma-X family of the modified beta exponential \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the gamma-X family of modified beta exponential \code{G} distribution. The General form for the probability density function (pdf) of the gamma-X family of the modified beta exponential \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = abg(x-\mu,\theta ){\left( {1 - G(x-\mu,\theta )} \right)^{ - 2}}{e^{ - b\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}}{\left[ {1 - {e^{ - b\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}}} \right]^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the gamma-X family of modified beta exponential \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = {\left( {1 - {e^{ - b\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}}}} \right)^a}.}
@@ -11,6 +11,7 @@ dgmbetaexpg(mydata, g, param, location = TRUE, log=FALSE)
 pgmbetaexpg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgmbetaexpg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgmbetaexpg(n, g, param, location = TRUE)
+qqgmbetaexpg(mydata, g, location = TRUE, method)
 mpsgmbetaexpg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alzaatreh, A., Lee, C., and Famoye, F. (2013). A new method for generating families of continuous distributions, \emph{Metron}, 71, 63-79.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgmbetaexpg(x, "weibull", c(1,1,2,2,3))
-pgmbetaexpg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgmbetaexpg(mydata, "weibull", c(1,1,2,2,3))
+pgmbetaexpg(mydata, "weibull", c(1,1,2,2,3))
 qgmbetaexpg(runif(100), "weibull", c(1,1,2,2,3))
 rgmbetaexpg(100, "weibull", c(1,1,2,2,3))
-mpsgmbetaexpg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgmbetaexpg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgmbetaexpg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

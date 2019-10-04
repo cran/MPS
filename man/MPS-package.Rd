@@ -1,6 +1,6 @@
 \name{MPS-package}
 \alias{MPS-package}
-\title{Developed for computing pdf, cdf, quantile, random generation, and estimating the parameters of 24 G-family of statistical distributions.}
+\title{Developed for computing pdf, cdf, quantile, random generation, drawing q-q plot, and estimating the parameters of 24 G-family of statistical distributions.}
 \description{Developed for computing the probability density function, computing the cumulative distribution function, computing the quantile function, random generation, and estimating the parameters of 24 G-family of statistical distributions via the maximum product spacing approach introduced in <https://www.jstor.org/stable/2345411>. These families are: beta G distribution due to Eugene et al. (2002), beta exponential G distribution due to Alzaatreh et al. (2013),
 beta extended G distribution due to Alzaatreh et al. (2013), exponentiated G distribution due to Gupta et al. (1998),
 exponentiated Kumaraswamy G distribution due to Lemonte et al. (2013), exponentiated exponential Poisson G distribution due to Ristic and Nadarajah (2014),
@@ -14,14 +14,14 @@ Package: MPS
 
 Type: Package
 
-Version: 2.2.0
+Version: 2.3.1
 
-Date: 2018-08-25
+Date: 2019-09-04
 
 License: GPL(>=2)
 }
 \author{
-Mahdi Teimouri
+Mahdi Teimouri and Saralees Nadarajah
 
 Maintainer: Mahdi Teimouri <teimouri@aut.ac.ir>
 }

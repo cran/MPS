@@ -16994,3 +16994,460 @@ rloggammag1<-function(n, g, param, location=TRUE){
   }
   return(quan(param,runif(n)))
 }
+
+
+qqbetaexpg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsbetaexpg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qbetaexpg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqbetag<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsbetag(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qbetag(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqexpexppg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsexpexppg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qexpexppg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqexpg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsexpg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qexpg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqexpgg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsexpgg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qexpgg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqexpkumg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsexpkumg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qexpkumg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgammag<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgammag(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgammag(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgammag1<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgammag1(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgammag1(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgammag2<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgammag2(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgammag2(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgbetag<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgbetag(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgbetag(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgexppg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgexppg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgexppg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgmbetaexpg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgmbetaexpg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgmbetaexpg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgtransg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgtransg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgtransg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqgxlogisticg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsgxlogisticg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qgxlogisticg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqkumg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpskumg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qkumg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqloggammag1<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsloggammag1(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qloggammag1(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqloggammag2<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsloggammag2(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qloggammag2(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqmbetag<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsmbetag(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qmbetag(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqmog<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsmog(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qmog(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqmokumg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsmokumg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qmokumg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqologlogg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsologlogg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qologlogg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqtexpsg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpstexpsg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qtexpsg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqweibullextg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsweibullextg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qweibullextg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}
+
+qqweibullg<-function(mydata, g, location = TRUE, method){
+  if (g != "birnbaum-saunders" & g != "exp" & g != "rayleigh" &
+      g != "weibull" & g != "gompertz" & g != "gamma" & g !=
+      "log-normal" & g != "chisq" & g != "f" & g != "burrxii" &
+      g != "frechet" & g != "lomax" & g != "log-logistic" &
+      g != "lfr" & g != "chen") {
+    stop("Baseline distribution not implemented or misspelled. Please check the manual for guidelines.")
+  }
+  n<-length(mydata)
+  sx<-sort(mydata)
+  k<-1.25
+  rankx<-(seq(1,n)-.5)/n
+  hat<-mpsweibullg(mydata, g=g, location=location, method=method, sig.level=.05)$MPS
+  quan<-qweibullg(rankx, g=g, hat, location=location, log.p=FALSE, lower.tail=TRUE)
+  out<-plot(sort(quan), sx, main="Q-Q plot", xlab="Theoretical Quantiles", ylab=
+              "Sample Quantiles", cex=k, cex.lab=k, cex.axis=k, col='black', lwd=2)
+  lines(mydata, mydata, col='steelblue', cex=0.5, lwd=2)
+}

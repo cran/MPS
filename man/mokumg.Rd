@@ -1,7 +1,7 @@
 \name{mokumg}
-\alias{dmokumg} \alias{pmokumg} \alias{qmokumg} \alias{rmokumg} \alias{mpsmokumg}
+\alias{dmokumg} \alias{pmokumg} \alias{qmokumg} \alias{rmokumg} \alias{mpsmokumg} \alias{qqmokumg}
 \title{Marshall-Olkin Kumaraswamy G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the Marshall-Olkin Kumaraswamy \code{G} distribution. General form for the probability density function (pdf) of the Marshall-Olkin Kumaraswamy \code{G} distribution due to Roshini and Thobias (2017) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the Marshall-Olkin Kumaraswamy \code{G} distribution. General form for the probability density function (pdf) of the Marshall-Olkin Kumaraswamy \code{G} distribution due to Roshini and Thobias (2017) is given by
 \deqn{f(x,{\Theta}) = \frac{{abd g(x-\mu,\theta ){{\left( {G(x-\mu,\theta )} \right)}^{a - 1}}{{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^{b - 1}}}}{{{{\left[ {1 - \left( {1 - d} \right){{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^b}} \right]}^2}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, d>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the Marshall-Olkin Kumaraswamy \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - \frac{{d{{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^b}}}{{1 - \left( {1 - d} \right){{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]}^b}}}.}
@@ -11,6 +11,7 @@ dmokumg(mydata, g, param, location = TRUE, log=FALSE)
 pmokumg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qmokumg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rmokumg(n, g, param, location = TRUE)
+qqmokumg(mydata, g, location = TRUE, method)
 mpsmokumg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Roshini, G. and Thobias, S. (2017). Marshall-Olkin Kumaraswamy Distribution, \emph{International Mathematical Forum},  12 (2), 47-69.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dmokumg(x, "weibull", c(1,1,1,2,2,3))
-pmokumg(x, "weibull", c(1,1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dmokumg(mydata, "weibull", c(1,1,1,2,2,3))
+pmokumg(mydata, "weibull", c(1,1,1,2,2,3))
 qmokumg(runif(100), "weibull", c(1,1,1,2,2,3))
 rmokumg(100, "weibull", c(1,1,1,2,2,3))
-mpsmokumg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqmokumg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsmokumg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

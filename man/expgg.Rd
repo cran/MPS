@@ -1,7 +1,7 @@
 \name{expgg}
-\alias{dexpgg} \alias{pexpgg} \alias{qexpgg} \alias{rexpgg} \alias{mpsexpgg}
+\alias{dexpgg} \alias{pexpgg} \alias{qexpgg} \alias{rexpgg} \alias{mpsexpgg} \alias{qqexpgg}
 \title{exponentiated generalized G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the exponentiated generalized \code{G} distribution. The General form for the probability density function (pdf) of the exponentiated generalized \code{G} distribution due to Cordeiro et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the exponentiated generalized \code{G} distribution. The General form for the probability density function (pdf) of the exponentiated generalized \code{G} distribution due to Cordeiro et al. (2013) is given by
 \deqn{f(x,{\Theta}) = a\,b\,g(x-\mu,\theta ){\left( {1 - G(x-\mu,\theta )} \right)^{a - 1}}{\left[ {1 - {{\left( {1 - G(x-\mu,\theta )} \right)}^a}} \right]^{b - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the exponentiated generalized \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = {\left[ {1 - {{\left( {1 - G(x-\mu,\theta )} \right)}^a}} \right]^b}.}
@@ -11,6 +11,7 @@ dexpgg(mydata, g, param, location = TRUE, log=FALSE)
 pexpgg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qexpgg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rexpgg(n, g, param, location = TRUE)
+qqexpgg(mydata, g, location = TRUE, method)
 mpsexpgg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Cordeiro, G. M., Ortega, E. M. M., and  da Cunha, D. C. C. (2013). The exponentiated generalized class of distributions, \emph{Journal of Data Science}, 11, 1-27.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dexpgg(x, "weibull", c(1,1,2,2,3))
-pexpgg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dexpgg(mydata, "weibull", c(1,1,2,2,3))
+pexpgg(mydata, "weibull", c(1,1,2,2,3))
 qexpgg(runif(100), "weibull", c(1,1,2,2,3))
 rexpgg(100, "weibull", c(1,1,2,2,3))
-mpsexpgg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqexpgg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsexpgg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

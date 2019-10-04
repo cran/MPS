@@ -1,7 +1,7 @@
 \name{gexppg}
-\alias{dgexppg} \alias{pgexppg} \alias{qgexppg} \alias{rgexppg} \alias{mpsgexppg}
+\alias{dgexppg} \alias{pgexppg} \alias{qgexppg} \alias{rgexppg} \alias{mpsgexppg} \alias{qqgexppg}
 \title{geometric exponential Poisson G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the geometric exponential Poisson \code{G} distribution. General form for the probability density function (pdf) of the geometric exponential Poisson \code{G} distribution due to Nadarajah et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the geometric exponential Poisson \code{G} distribution. General form for the probability density function (pdf) of the geometric exponential Poisson \code{G} distribution due to Nadarajah et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{a(1 - b)\,g(x-\mu,\theta )\left( {1 - {e^{ - a}}} \right){e^{ - a + a\,G(x-\mu,\theta )}}}}{{{{\left( {1 - {e^{ - a}} - b + b{e^{ - a + a\,G(x-\mu,\theta )}}} \right)}^2}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, 0<b<1, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the geometric exponential Poisson \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \frac{{{e^{ - a + aG(x-\mu,\theta )}} - {e^{ - a}}}}{{{{{1 - {e^{ - a}} - b + b{e^{ - a + aG(x-\mu,\theta )}}}}}}}.}
@@ -11,6 +11,7 @@ dgexppg(mydata, g, param, location = TRUE, log=FALSE)
 pgexppg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qgexppg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rgexppg(n, g, param, location = TRUE)
+qqgexppg(mydata, g, location = TRUE, method)
 mpsgexppg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Nadarajah, S., Cancho, V. G., and Ortega, E. M. M. (2013). The geometric exponential Poisson distribution, \emph{Statistical Methods & Applications}, 22, 355-380.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dgexppg(x, "weibull", c(1,0.5,2,2,3))
-pgexppg(x, "weibull", c(1,0.5,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dgexppg(mydata, "weibull", c(1,0.5,2,2,3))
+pgexppg(mydata, "weibull", c(1,0.5,2,2,3))
 qgexppg(runif(100), "weibull", c(1,0.5,2,2,3))
 rgexppg(100, "weibull", c(1,0.5,2,2,3))
-mpsgexppg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqgexppg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsgexppg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

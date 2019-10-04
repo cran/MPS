@@ -1,7 +1,7 @@
 \name{kumg}
-\alias{dkumg} \alias{pkumg} \alias{qkumg} \alias{rkumg} \alias{mpskumg}
+\alias{dkumg} \alias{pkumg} \alias{qkumg} \alias{rkumg} \alias{mpskumg} \alias{qqkumg}
 \title{Kumaraswamy G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the Kumaraswamy \code{G} distribution. General form for the probability density function (pdf) of the Kumaraswamy \code{G} distribution due to Cordeiro and Castro (2011) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the Kumaraswamy \code{G} distribution. General form for the probability density function (pdf) of the Kumaraswamy \code{G} distribution due to Cordeiro and Castro (2011) is given by
 \deqn{f(x,{\Theta}) = a\,b\,g(x-\mu,\theta ){\left( {G(x-\mu,\theta )} \right)^{a - 1}}{\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]^{b - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the Kumaraswamy \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - {\left[ {1 - {{\left( {G(x-\mu,\theta )} \right)}^a}} \right]^b}.}
@@ -11,6 +11,7 @@ dkumg(mydata, g, param, location = TRUE, log=FALSE)
 pkumg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qkumg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rkumg(n, g, param, location = TRUE)
+qqkumg(mydata, g, location = TRUE, method)
 mpskumg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Cordeiro, G. M. and  Castro, M. (2011). A new family of generalized distributions, \emph{Journal of Statistical Computation and Simulation}, 81, 883-898.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dkumg(x, "weibull", c(1,1,2,2,3))
-pkumg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dkumg(mydata, "weibull", c(1,1,2,2,3))
+pkumg(mydata, "weibull", c(1,1,2,2,3))
 qkumg(runif(100), "weibull", c(1,1,2,2,3))
 rkumg(100, "weibull", c(1,1,2,2,3))
-mpskumg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqkumg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpskumg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

@@ -1,7 +1,7 @@
 \name{expg}
-\alias{dexpg} \alias{pexpg} \alias{qexpg} \alias{rexpg} \alias{mpsexpg}
+\alias{dexpg} \alias{pexpg} \alias{qexpg} \alias{rexpg} \alias{mpsexpg} \alias{qqexpg}
 \title{exponentiated G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the exponentiated \code{G} distribution. General form for the probability density function (pdf) of the exponentiated \code{G} distribution due to Gupta et al. (1998) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the exponentiated \code{G} distribution. General form for the probability density function (pdf) of the exponentiated \code{G} distribution due to Gupta et al. (1998) is given by
 \deqn{f(x,{\Theta}) = a\,g(x-\mu,\theta ){\left( {G(x-\mu,\theta )} \right)^{a - 1}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the exponentiated \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = \left( {G(x-\mu,\theta )} \right)^{a}.}
@@ -11,6 +11,7 @@ dexpg(mydata, g, param, location = TRUE, log=FALSE)
 pexpg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qexpg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rexpg(n, g, param, location = TRUE)
+qqexpg(mydata, g, location = TRUE, method)
 mpsexpg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Gupta, R. C., Gupta, P. L., and Gupta, R. D. (1998). Modeling failure time data by Lehman alternatives, \emph{Communications in Statistics-Theory and Methods}, 27, 887-904.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dexpg(x, "weibull", c(1,2,2,3))
-pexpg(x, "weibull", c(1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dexpg(mydata, "weibull", c(1,2,2,3))
+pexpg(mydata, "weibull", c(1,2,2,3))
 qexpg(runif(100), "weibull", c(1,2,2,3))
 rexpg(100, "weibull", c(1,2,2,3))
-mpsexpg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqexpg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsexpg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

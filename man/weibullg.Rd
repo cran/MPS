@@ -1,7 +1,7 @@
 \name{weibullg}
-\alias{dweibullg} \alias{pweibullg} \alias{qweibullg} \alias{rweibullg} \alias{mpsweibullg}
+\alias{dweibullg} \alias{pweibullg} \alias{qweibullg} \alias{rweibullg} \alias{mpsweibullg} \alias{qqweibullg}
 \title{Weibull G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the Weibull \code{G} distribution. General form for the probability density function (pdf) of the Weibull \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the Weibull \code{G} distribution. General form for the probability density function (pdf) of the Weibull \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{a}{{{b^a}}}\frac{{g(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}{\left[ { - \log \left( {1 - G(x-\mu,\theta )} \right)} \right]^{a - 1}}{e^{ - {{\left( {\frac{{ - \log \left( {1 - G(x-\mu,\theta )} \right)}}{b}} \right)}^a}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the Weibull \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - {e^{ - {{\left( {\frac{{ - \log \left( {1 - G(x-\mu,\theta )} \right)}}{b}} \right)}^a}}}.}
@@ -11,6 +11,7 @@ dweibullg(mydata, g, param, location = TRUE, log=FALSE)
 pweibullg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qweibullg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rweibullg(n, g, param, location = TRUE)
+qqweibullg(mydata, g, location = TRUE, method)
 mpsweibullg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alzaatreh, A., Lee, C., and Famoye, F. (2013). A new method for generating families of continuous distributions, \emph{Metron}, 71, 63-79.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dweibullg(x, "weibull", c(1,1,2,2,3))
-pweibullg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dweibullg(mydata, "weibull", c(1,1,2,2,3))
+pweibullg(mydata, "weibull", c(1,1,2,2,3))
 qweibullg(runif(100), "weibull", c(1,1,2,2,3))
 rweibullg(100, "weibull", c(1,1,2,2,3))
-mpsweibullg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqweibullg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsweibullg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }

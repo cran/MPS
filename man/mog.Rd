@@ -1,7 +1,7 @@
 \name{mog}
-\alias{dmog} \alias{pmog} \alias{qmog} \alias{rmog} \alias{mpsmog}
+\alias{dmog} \alias{pmog} \alias{qmog} \alias{rmog} \alias{mpsmog} \alias{qqmog}
 \title{Marshall-Olkin G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the Marshall-Olkin \code{G} distribution. General form for the probability density function (pdf) of the Marshall-Olkin \code{G} distribution due to Marshall and Olkin (1997) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the Marshall-Olkin \code{G} distribution. General form for the probability density function (pdf) of the Marshall-Olkin \code{G} distribution due to Marshall and Olkin (1997) is given by
 \deqn{f(x,{\Theta}) = \frac{{ag(x-\mu,\theta )}}{{{{\left[ {1 - \left( {1 - a} \right)\left( {1 - G(x-\mu,\theta )} \right)} \right]}^2}}},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0 and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the Marshall-Olkin \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - \frac{{a\left( {1 - G(x-\mu,\theta )} \right)}}{{\left[ {1 - \left( {1 - a} \right)\left( {1 - G(x-\mu,\theta )} \right)} \right]}}.}
@@ -11,6 +11,7 @@ dmog(mydata, g, param, location = TRUE, log=FALSE)
 pmog(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qmog(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rmog(n, g, param, location = TRUE)
+qqmog(mydata, g, location = TRUE, method)
 mpsmog(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,11 +44,12 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Marshall, A. W. and Olkin, I. (1997). A new method for adding a parameter to a family of distributions with application to the exponential and Weibull families, \emph{Biometrika}, 84, 641-652.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100,shape=2,scale=2)+3
-dmog(x, "weibull", c(0.5,2,2,3))
-pmog(x, "weibull", c(0.5,2,2,3))
+mydata<-rweibull(100,shape=2,scale=2)+3
+dmog(mydata, "weibull", c(0.5,2,2,3))
+pmog(mydata, "weibull", c(0.5,2,2,3))
 qmog(runif(100), "weibull", c(0.5,2,2,3))
 rmog(100, "weibull", c(0.5,2,2,3))
-mpsmog(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqmog(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsmog(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
 

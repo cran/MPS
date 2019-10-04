@@ -1,7 +1,7 @@
 \name{weibullextg}
-\alias{dweibullextg} \alias{pweibullextg} \alias{qweibullextg} \alias{rweibullextg} \alias{mpsweibullextg}
+\alias{dweibullextg} \alias{pweibullextg} \alias{qweibullextg} \alias{rweibullextg} \alias{mpsweibullextg} \alias{qqweibullextg}
 \title{T-X\code{{log-logistic}} G distribution}
-\description{Computes the pdf, cdf, quantile, and random numbers of the Weibull extended or T-X\code{{log-logistic}} \code{G} distribution. General form for the probability density function (pdf) of the Weibull extended \code{G} distribution due to Alzaatreh et al. (2013) is given by
+\description{Computes the pdf, cdf, quantile, and random numbers, draws the q-q plot, and estimates the parameters of the Weibull extended or T-X\code{{log-logistic}} \code{G} distribution. General form for the probability density function (pdf) of the Weibull extended \code{G} distribution due to Alzaatreh et al. (2013) is given by
 \deqn{f(x,{\Theta}) = \frac{{a\,g(x-\mu,\theta)}}{{b{{\left( {1 - G(x-\mu,\theta )} \right)}^2}}}{\left( {\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}} \right)^{\frac{1}{b} - 1}}\exp \left\{ { - a{{\left( {\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}} \right)}^{\frac{1}{b}}}} \right\},}
 where \eqn{\theta} is the baseline family parameter vector. Also, a>0, b>0, and \eqn{\mu} are the extra parameters induced to the baseline cumulative distribution function (cdf) \code{G} whose pdf is \code{g}. The general form for the cumulative distribution function (cdf) of the Weibull extended \code{G} distribution is given by
 \deqn{F(x,{\Theta}) = 1 - \exp \left\{ { - a{{\left( {\frac{{G(x-\mu,\theta )}}{{1 - G(x-\mu,\theta )}}} \right)}^{\frac{1}{b}}}} \right\}.}
@@ -11,6 +11,7 @@ dweibullextg(mydata, g, param, location = TRUE, log=FALSE)
 pweibullextg(mydata, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 qweibullextg(p, g, param, location = TRUE, log.p = FALSE, lower.tail = TRUE)
 rweibullextg(n, g, param, location = TRUE)
+qqweibullextg(mydata, g, location = TRUE, method)
 mpsweibullextg(mydata, g, location = TRUE, method, sig.level)
 }
 \arguments{
@@ -43,10 +44,11 @@ Cheng, R. C. H. and Stephens, M. A. (1989). A goodness-of-fit test using Moran's
 Alzaatreh, A., Lee, C., and Famoye, F. (2013). A new method for generating families of continuous distributions, \emph{Metron}, 71, 63-79.}
 \author{Mahdi Teimouri}
 \examples{
-x<-rweibull(100, shape=2, scale=2)+3
-dweibullextg(x, "weibull", c(1,1,2,2,3))
-pweibullextg(x, "weibull", c(1,1,2,2,3))
+mydata<-rweibull(100, shape=2, scale=2)+3
+dweibullextg(mydata, "weibull", c(1,1,2,2,3))
+pweibullextg(mydata, "weibull", c(1,1,2,2,3))
 qweibullextg(runif(100), "weibull", c(1,1,2,2,3))
 rweibullextg(100, "weibull", c(1,1,2,2,3))
-mpsweibullextg(x, "weibull", TRUE, "Nelder-Mead", 0.05)
+qqweibullextg(mydata, "weibull", TRUE, "Nelder-Mead")
+mpsweibullextg(mydata, "weibull", TRUE, "Nelder-Mead", 0.05)
 }
